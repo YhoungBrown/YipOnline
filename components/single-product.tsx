@@ -9,6 +9,7 @@ interface SingleProductGridProps {
   price: number
   description: string
   photoUrl: string
+  onPress?: () => void
 }
 
 
@@ -16,7 +17,9 @@ const SingleProductGrid = (props: SingleProductGridProps) => {
 
   return (
     <TouchableOpacity key={props.key} 
-        style={styles.container}>
+        style={styles.container}
+        onPress={props.onPress}
+      >
 
         <Image 
             source={{ uri: props.photoUrl }} 

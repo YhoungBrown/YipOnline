@@ -28,9 +28,16 @@ interface UploadFormProps {
     description: string
     photoUrl: string
   }) => void
+  singleProduct?: {
+    id: string
+    name: string
+    price: number
+    description: string
+    photoUrl: string
+  }
 }
 
-const UploadForm = ({ visible, onClose, onSubmit }: UploadFormProps) => {
+const UploadForm = ({ visible, onClose, onSubmit, singleProduct  }: UploadFormProps) => {
 
   const [name, setName] = useState<string>('')
   const [price, setPrice] = useState<string>('')
@@ -44,7 +51,7 @@ const UploadForm = ({ visible, onClose, onSubmit }: UploadFormProps) => {
 
   const products = useSelector((state: RootState) => state.product.products);
 
-
+  
 
 
   useFocusEffect(
@@ -62,6 +69,24 @@ const UploadForm = ({ visible, onClose, onSubmit }: UploadFormProps) => {
             setEmptyImage(false)
         }
     }, [selectedImage])
+
+
+useEffect(() => {
+  if (singleProduct && visible) {
+    setName(singleProduct.name)
+    setPrice(singleProduct.price.toString())
+    setDescription(singleProduct.description)
+    setSelectedImage(singleProduct.photoUrl)
+  }
+
+  if (!singleProduct && visible) {
+    setName('')
+    setPrice('')
+    setDescription('')
+    setSelectedImage(null)
+  }
+}, [singleProduct, visible])
+
 
 
   const handleSubmit = () => {
@@ -125,7 +150,9 @@ const UploadForm = ({ visible, onClose, onSubmit }: UploadFormProps) => {
         style={styles.overlay}
       >
         <View style={styles.container}>
-          <Text style={styles.title}>Add Product</Text>
+          <Text style={styles.title}>
+            {singleProduct ? 'Edit Product' : 'Add Product'}
+          </Text>
 
           <TextInput
             placeholder="Product name"

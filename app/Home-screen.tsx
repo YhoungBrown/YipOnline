@@ -11,6 +11,7 @@ import UploadForm from '@/components/Upload-form'
 import { Entypo } from '@expo/vector-icons'
 import { addProduct } from '@/redux-slice/product-slice'
 import styles from '@/stylesheets/homescreen-stylesheet'
+import { router } from 'expo-router'
 
 const HomeScreen = () => {
     const dispatch = useDispatch();
@@ -47,6 +48,10 @@ const HomeScreen = () => {
                 price={item.price}
                 description={item.description}
                 photoUrl={item.photoUrl}
+                onPress={() => router.push({
+                  pathname: "/[id]",
+                  params: { id: item.id }
+                })}
               />
             ) : (
               <SingleProductGrid
@@ -55,6 +60,10 @@ const HomeScreen = () => {
                 price={item.price}
                 description={item.description}
                 photoUrl={item.photoUrl}
+                onPress={() => router.push({
+                  pathname: "/[id]",
+                  params: { id: item.id }
+                })}
               />
             )
           )

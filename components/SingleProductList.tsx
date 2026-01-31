@@ -10,6 +10,7 @@ interface SingleProductListProps {
   price: number
   description: string
   photoUrl: string
+  onPress?: () => void
 }
 
 
@@ -19,12 +20,12 @@ const SingleProductList = (props: SingleProductListProps) => {
     <TouchableOpacity key={props.key} 
         style={styles.container}>
         <View style={styles.innerContainer}>
-            {/* <View> */}
+            
              <Image 
                 source={{ uri: props.photoUrl }} 
                 style={styles.image} 
             />
-            {/* </View> */}
+            
 
             <View style={styles.textSection}>
                 <Text style={styles.name}>{props.name}</Text>

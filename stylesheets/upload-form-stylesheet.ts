@@ -22,10 +22,15 @@ const styles = StyleSheet.create({
 
   input: {
     borderWidth: 1,
-    borderColor: '#ddd',
     borderRadius: 8,
     padding: 12,
     marginBottom: 10,
+  },
+  emptyFieldErrorText: {
+    color: 'red',
+    marginBottom: 8,
+    marginTop: -4, 
+    fontSize: 11
   },
 
   multiline: {
@@ -61,6 +66,22 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     textAlign: 'center',
+  },
+  uploadOpacity: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 220,
+    borderStyle: 'dashed',
+    borderWidth: 2,
+  },
+  selectedImage: {
+    width: '100%',
+    height: 200,
+    borderRadius: 8,
+  },
+  tapToSelectText: {
+    color: '#999',
+    fontSize: 14,
   },
 })
 export default styles

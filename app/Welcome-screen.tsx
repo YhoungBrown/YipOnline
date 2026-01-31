@@ -3,11 +3,13 @@ import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import styles from '@/stylesheets/welcome-screen-stylesheet'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { useRouter } from 'expo-router'
 
 
 
 const WelcomeScreen = () => {
     const inset = useSafeAreaInsets();
+    const router = useRouter();
   return (
     <View style={[
         styles.container,
@@ -38,7 +40,7 @@ const WelcomeScreen = () => {
       <TouchableOpacity 
         style={styles.welcomeButton}
         onPress={() => {
-          // Handle button press, e.g., navigate to the main app
+          router.replace("/Home-screen");
         }}
       >
         <Text style={styles.continueText}>Continue</Text>

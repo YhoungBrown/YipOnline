@@ -21,6 +21,7 @@ export default function RootLayout() {
         <PersistGate loading={null} persistor={persistor}>
           <Stack>
             <Stack.Screen name="Welcome-screen" options={{ headerShown: false }} />
+            <Stack.Screen name="Home-screen" options={{ headerShown: false }} />
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
           </Stack>

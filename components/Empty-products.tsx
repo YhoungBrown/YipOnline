@@ -1,8 +1,14 @@
 import { View, Text, Image, StyleSheet, Touchable, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import Entypo from '@expo/vector-icons/Entypo';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '@/redux-slice/product-slice';
+import UploadForm from './Upload-form';
 
 const Emptyproducts = () => {
+   const [open, setOpen] = useState<boolean>(false)
+  const dispatch = useDispatch()
+
   return (
     <View style={styles.container}>
       <Image source={require("../assets/images/emptyIcon.png")} style={styles.image} />
@@ -11,14 +17,29 @@ const Emptyproducts = () => {
        {`\n`}click on the + icon to add products
       </Text>
 
-      <TouchableOpacity style={styles.button}>
-        {/* <Text style={{ color: 'white' }}>Add Product</Text> */}
+      <TouchableOpacity style={styles.button}
+      onPress={() => setOpen(!open)}
+      >
+       
         <Entypo 
           name="plus" 
           size={24} 
           color="white" 
         />
       </TouchableOpacity>
+
+       <UploadForm
+        visible={open}
+        onClose={() => setOpen(false)}
+        onSubmit={(data) =>
+          dispatch(
+            addProduct({
+              id: Date.now().toString(),
+              ...data,
+            })
+          )
+        }
+      />
     </View>
   )
 }

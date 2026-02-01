@@ -5,7 +5,7 @@ import styles from '@/stylesheets/SingleProductList-stylesheet'
 
 
 interface SingleProductListProps {
-  key: string
+  productId: string
   name: string
   price: number
   description: string
@@ -17,7 +17,7 @@ interface SingleProductListProps {
 const SingleProductList = (props: SingleProductListProps) => {
 
   return (
-    <TouchableOpacity key={props.key} 
+    <TouchableOpacity
         style={styles.container}>
         <View style={styles.innerContainer}>
             

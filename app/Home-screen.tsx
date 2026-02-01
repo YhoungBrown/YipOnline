@@ -44,6 +44,7 @@ const HomeScreen = () => {
             listView ? (
               <SingleProductList
                 key={item.id}
+                productId={item.id}
                 name={item.name}
                 price={item.price}
                 description={item.description}
@@ -56,6 +57,7 @@ const HomeScreen = () => {
             ) : (
               <SingleProductGrid
                 key={item.id}
+                productId={item.id}
                 name={item.name}
                 price={item.price}
                 description={item.description}

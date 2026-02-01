@@ -4,7 +4,7 @@ import styles from '@/stylesheets/SingleProductGrid-stylesheet'
 
 
 interface SingleProductGridProps {
-  key: string
+  productId: string
   name: string
   price: number
   description: string
@@ -16,7 +16,7 @@ interface SingleProductGridProps {
 const SingleProductGrid = (props: SingleProductGridProps) => {
 
   return (
-    <TouchableOpacity key={props.key} 
+    <TouchableOpacity
         style={styles.container}
         onPress={props.onPress}
       >

@@ -23,7 +23,7 @@ const HomeScreen = () => {
   return (
     <View style={[styles.container, { paddingTop: inset.top, paddingBottom: inset.bottom }]}>
       
-      
+      {product.length > 0 &&(
       <TouchableOpacity
         onPress={() => setListView(!listView)}
         style={{ alignSelf: 'flex-end', marginBottom: 10 }}
@@ -35,8 +35,13 @@ const HomeScreen = () => {
         )}
       </TouchableOpacity>
 
+      )}
+      
+
     
-      <ScrollView style={{ flex: 1 }}>
+      <ScrollView 
+      contentContainerStyle={{ flexGrow: 1 }}
+      >
         {product.length === 0 ? (
           <Emptyproducts />
         ) : (
@@ -72,6 +77,7 @@ const HomeScreen = () => {
         )}
       </ScrollView>
 
+      {product.length > 0 && (
       <TouchableOpacity style={styles.button}
       onPress={() => setOpen(!open)}
       >
@@ -82,6 +88,9 @@ const HomeScreen = () => {
           color="white" 
         />
       </TouchableOpacity>
+
+      )}
+
 
        <UploadForm
         visible={open}

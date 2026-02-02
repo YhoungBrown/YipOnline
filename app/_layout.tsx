@@ -9,9 +9,7 @@ import { useColorScheme } from '@/hooks/use-color-scheme'
 import Toast from 'react-native-toast-message'
 import { toastConfig } from '@/components/custom-toast'
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-}
+
 
 export default function RootLayout() {
   const colorScheme = useColorScheme()
@@ -22,8 +20,8 @@ export default function RootLayout() {
         <PersistGate loading={null} persistor={persistor}>
           <>
             
-            <Stack initialRouteName="Welcome-screen">
-              <Stack.Screen name="Welcome-screen" options={{ headerShown: false }} />
+            <Stack initialRouteName="index">
+              <Stack.Screen name="index" options={{ headerShown: false }} />
               <Stack.Screen name="Home-screen" options={{ headerShown: false }} />
               <Stack.Screen name="ProductDetailScreen" options={{ headerShown: false }} />
               <Stack.Screen

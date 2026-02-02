@@ -18,7 +18,9 @@ const SingleProductList = (props: SingleProductListProps) => {
 
   return (
     <TouchableOpacity
-        style={styles.container}>
+        style={styles.container}
+        onPress={props.onPress}
+      >
         <View style={styles.innerContainer}>
             
              <Image 

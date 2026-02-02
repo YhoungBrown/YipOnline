@@ -21,19 +21,17 @@ export default function RootLayout() {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <>
-            {/* Navigation */}
+            
             <Stack initialRouteName="Welcome-screen">
               <Stack.Screen name="Welcome-screen" options={{ headerShown: false }} />
               <Stack.Screen name="Home-screen" options={{ headerShown: false }} />
               <Stack.Screen name="ProductDetailScreen" options={{ headerShown: false }} />
-              {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> */}
               <Stack.Screen
                 name="modal"
                 options={{ presentation: 'modal', title: 'Modal' }}
               />
             </Stack>
 
-            {/* Global UI layers */}
             <StatusBar style="auto" />
             <Toast config={toastConfig} />
           </>
